@@ -1,0 +1,61 @@
+
+moboot 0.3.5
+============
+
+moboot will look for uImages to boot in /boot with the name 'uImage.NAME'
+ i.e. uImage.* (excluding uImage.moboot*)
+
+It will list those images in the boot menu as "boot NAME" in the order
+they happen to appear in the ext2 dir structure.
+
+If no files are found on /boot as above, it will add an entry "boot" for
+the image /boot/uImage-2.6.35-palm-tenderloin
+
+##
+## Options
+##
+echo "NAME1" >/boot/moboot.default # will set default image to uImage.NAME1
+echo "10" >/boot/moboot.timeout     # will set timeout to 10 (defaults to 5)
+
+##
+## Special Option for "Native Linux" builds (does not work for CM)
+## This will allow seeing boot messages during bootup
+##
+echo "yes" >/boot/moboot.verbose.NAME1 # will set "verbose boot" for NAME1
+
+##
+## Splash Image
+##
+If the uImage booted is named 'uImage.NAME', moboot will check for a file
+named 'moboot.splash.NAME.tga' to display as a "splash" image just prior
+to booting. The image will be centered on a blank screen (black background).
+This image file must be a targa image file (preferrably 24-bit, rle encoded).
+
+
+##
+## to select *next* boot image
+##
+echo "NAME1" >/boot/moboot.next    # will boot uImage.NAME1 without menu
+# NOTE: moboot does not delete the file, so the OS booted should
+
+###
+### to install w/ ACMEInstaller
+###
+# copy moboot_0.3.5.zip file to cminstall dir on device
+# run ACMEInstaller
+
+###
+### to manually install
+###
+# copy uImage.moboot_0.3.5 to device (booted to webOS)
+mount -o remount,rw /boot
+cd /boot
+cp /path/to/uImage.moboot_0.3.5 /boot/uImage.moboot
+rm uImage
+ln -s uImage.moboot uImage
+ln -s uImage-2.6.35-palm-tenderloin uImage.webOS
+echo "webOS" >moboot.default
+sync
+
+  - James Sullins 2011/11/27
+
