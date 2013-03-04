@@ -20,9 +20,14 @@
 8. rndis is enabled, so you should see a new wired connection in network manager.  To allow network access over usb/adb, in network manager IPv4 settings, select: Method: Shared to other computers
   * at this point, you could enable sshd in order to connect to the touchpad over ssh
 
-TODO:
+## TODO:
 - [ ] wifi patch: https://github.com/TouchpadCM/compat-wireless-3.3-rc1-2/commit/4f92acb42c210e08ff20853d82afdacf7da28354
 - [x] touchscreen
 - [ ] gnome-shell
 - [ ] re-enable android ram-console in kernel config..  it is quite useful for debugging crashes, but seems to be causing some memory corruption itself
 
+## Teh Codez
+* kernel: git://github.com/freedreno/kernel-msm.git
+  * branch: hp-tenderloin-3.0
+  * use tenderloin_rob_defconfig
+* ts_srv: git://github.com/freedreno/ts_srv_tenderloin.git
