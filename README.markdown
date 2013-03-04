@@ -22,7 +22,7 @@
 
 TODO:
 - [ ] wifi patch: https://github.com/TouchpadCM/compat-wireless-3.3-rc1-2/commit/4f92acb42c210e08ff20853d82afdacf7da28354
-- [ ] touchscreen
+- [x] touchscreen
 - [ ] gnome-shell
 - [ ] re-enable android ram-console in kernel config..  it is quite useful for debugging crashes, but seems to be causing some memory corruption itself
 
