@@ -20,7 +20,7 @@ CURRENTSIZE=\$(lvm.static lvdisplay -c store/media | awk -F: '{print \$7/2048}')
 NEWSIZE=\$((\$CURRENTSIZE - \$PARTITION))
 
 echo "Your new partition layout will include a \${PARTITION}MB ext3 partition and a \${NEWSIZE}MB media partition."
-echo "Does this seem correct? If so, type 1, if not, type 0."
+echo "Does this seem correct? If so, type y, if not, type n."
 read OK
 if [ \$OK == "y" ];
 	then echo "Ok, continuing."
